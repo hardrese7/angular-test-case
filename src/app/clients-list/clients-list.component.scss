@@ -1,3 +1,4 @@
+@import "../../styles/variables";
 :host {
     height: calc(100% - 30px);
     display: block;
@@ -5,6 +6,12 @@
 }
 
 .client {
+    &_selected {
+        background-color: $liteBlue;
+    }
+    &:hover {
+        background-color: $liteGrey;
+    }
     padding: 5px;
     cursor: pointer;
     border-top: 1px solid #d6d7d8;
