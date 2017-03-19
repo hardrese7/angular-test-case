@@ -1,5 +1,5 @@
 import {GeneralInfo, JobInfo, ContactInfo, AddressInfo} from "./"
-class Client{
+export class Client{
     general: GeneralInfo;
     job: JobInfo;
     contact: ContactInfo;
