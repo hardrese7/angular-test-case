@@ -1,5 +1,30 @@
 :host {
     height: calc(100% - 30px);
     display: block;
-    background-color: blue;
+    overflow-y: auto;
+}
+
+.client {
+    padding: 5px;
+    cursor: pointer;
+    border-top: 1px solid #d6d7d8;
+    $h: 50px;
+    height: $h;
+    &__photo {
+        img {
+            width: $h;
+            height: $h;
+        }
+        display: inline-block;
+        vertical-align: middle;
+    }
+    &__name {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: $h;
+        &__string {
+            color: #27464e;
+            line-height: 17px;
+        }
+    }
 }

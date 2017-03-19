@@ -1,0 +1,13 @@
+<div class="client" *ngFor="let client of clients" (click)="selectClient(client)">
+    <div class="client__photo">
+        <img src="{{client.general.avatar}}" alt="{{client.general.firstName + ' ' + client.general.lastName}}">
+    </div>
+    <div class="client__name">
+        <div class="client__name__string">
+            {{client.general.firstName}}
+        </div>
+        <div class="client__name__string">
+            {{client.general.lastName}}
+        </div>
+    </div>
+</div>
