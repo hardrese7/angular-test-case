@@ -1,0 +1,30 @@
+<div *ngIf="client">
+    <div class="photo">
+        <img src="{{client.general.avatar}}" alt="">
+    </div>
+    <div class="info">
+        <div class="name">
+            {{client.general.firstName}} {{client.general.lastName}}
+        </div>
+        <div class="contacts contacts_margin-top">
+            <h3 class="info__title">Contacts</h3>
+            <div class="contacts__email">email: {{client.contact.email}}</div>
+            <div class="contacts__phone">phone: {{client.contact.phone}}</div>
+        </div>
+        <div class="address address_margin-top">
+            <h3 class="info__title">Address</h3>
+            <div class="address__street">street: {{client.address.street}}</div>
+            <div class="address__city">city: {{client.address.city}}</div>
+            <div class="address__zipCode">zip code: {{client.address.zipCode}}</div>
+            <div class="address__country">country: {{client.address.country}}</div>
+        </div>
+        <div class="job job_margin-top">
+            <h3 class="info__title">Job</h3>
+            <div class="job__company">company: {{client.job.company}}</div>
+            <div class="job__title">title: {{client.job.title}}</div>
+        </div>
+    </div>
+</div>
+<div *ngIf="!client">
+    <h1 class="title">Select client card</h1>
+</div>
