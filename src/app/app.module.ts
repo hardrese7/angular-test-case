@@ -28,6 +28,7 @@ import { StartPageComponent } from './start-page';
 import { SearchPanelComponent } from './search-panel';
 import { NoContentComponent } from './no-content';
 import { ClientsListComponent } from './clients-list';
+import { DetailsComponent } from './details';
 
 import '../styles/styles.scss';
 
@@ -52,7 +53,8 @@ type StoreType = {
     AppComponent,
     StartPageComponent,
     NoContentComponent,
-    SearchPanelComponent
+    SearchPanelComponent,
+    DetailsComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,
