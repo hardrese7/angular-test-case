@@ -1,0 +1,28 @@
+:host {
+    display: flex;
+}
+
+.input {
+    height: 30px;
+    flex-grow: 1;
+    box-sizing: border-box;
+    &_margin-right {
+        margin-right: 10px;
+    }
+}
+
+.btn {
+    outline: none;
+    border: none;
+    background: white;
+    cursor: pointer;
+    flex-basis: 30px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    &_magnify-icon {
+        background-image: url("/assets/img/maginfy-icon.png");
+        width: 30px;
+        height: 30px;
+        box-sizing: border-box;
+    }
+}
