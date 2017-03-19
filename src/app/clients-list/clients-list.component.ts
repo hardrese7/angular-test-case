@@ -61,9 +61,18 @@ export class ClientsListComponent implements OnInit {
   filterClients() {
     if (!this.term) {
       this.filteredClients = this.clients;
-      return;
+    } else{
+      this.filteredClients = this.clients.filter(this.searchTermInObject.bind(this));
     }
-    this.filteredClients = this.clients.filter(this.searchTermInObject.bind(this));
+    this.notifyAboutFoundClients();
+  }
+
+  notifyAboutFoundClients(){
+    if(!this.filteredClients.length){
+      this.clientsService.clientsNotFound(true);
+    } else{
+      this.clientsService.clientsNotFound(false);
+    }
   }
 
   selectClient(client: Client) {

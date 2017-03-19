@@ -1,6 +1,7 @@
 @import "../../styles/variables";
 :host {
     display: flex;
+    border-bottom: 1px solid $liteGrey;
 }
 
 $h: 30px;

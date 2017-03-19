@@ -8,13 +8,17 @@
 .client {
     &_selected {
         background-color: $liteBlue;
+        border-top: none;
     }
     &:hover {
         background-color: $liteGrey;
     }
     padding: 5px;
     cursor: pointer;
-    border-top: 1px solid #d6d7d8;
+    border-top: 1px solid $liteGrey;
+    &:first-child {
+        border-top: none;
+    }
     $h: 50px;
     height: $h;
     &__photo {

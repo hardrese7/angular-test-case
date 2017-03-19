@@ -19,11 +19,15 @@ export class DetailsPanelComponent implements OnInit {
   term: string;
   errorMessage: any;
   client: Client;
-  error: any;
+  clientsNotFound: boolean;
+
   public ngOnInit() {
     this.clientsService.clientSelected$.subscribe(
-      (client) => this.client = client,
-      (error) => this.error = error
+      (client) => {
+        this.client = client;
+        this.clientsNotFound = false;
+      },
+      (error) => this.errorMessage = error
     );
     this.clientsService.clientsFiltered$.subscribe(
       (term) => {
@@ -31,5 +35,14 @@ export class DetailsPanelComponent implements OnInit {
       },
       (error) => this.errorMessage = error
     );
+    this.clientsService.clientsNotFound$.subscribe(
+      (notFound) => {
+        this.clientsNotFound = notFound;
+        if(notFound){
+          this.client = null;
+        }
+      },
+      (error) => this.errorMessage = error
+    )
   }
 }

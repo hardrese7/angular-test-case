@@ -25,5 +25,6 @@
     </div>
 </div>
 <div *ngIf="!client">
-    <h1 class="title">Select client card</h1>
+    <h1 class="title" *ngIf="!clientsNotFound">Select client card</h1>
+    <h1 class="title" *ngIf="clientsNotFound">No results.</h1>
 </div>

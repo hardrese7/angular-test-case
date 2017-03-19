@@ -1,6 +1,6 @@
-<div class="client" *ngFor="let client of filteredClients" (click)="selectClient(client)" [class.client_selected]="selectedClient === client">
+<div class="client" *ngFor="let client of filteredClients" (click)="selectClient(client)" title="{{client.general.firstName + ' ' + client.general.lastName}}" [class.client_selected]="selectedClient === client">
     <div class="client__photo">
-        <img src="{{client.general.avatar}}" alt="{{client.general.firstName + ' ' + client.general.lastName}}">
+        <img src="{{client.general.avatar}}">
     </div>
     <div class="client__name">
         <div class="client__name__string">
