@@ -1,2 +1,1 @@
-<input type="text" class="input input_margin-right" (keyup.enter)="filterClients()" [(ngModel)]="term">
-<button class="btn btn_magnify-icon" (click)="filterClients()"></button>
+<input type="text" class="input input_margin-right" (input)="term$.next($event.target.value)">

@@ -1,35 +1,17 @@
 @import "../../styles/variables";
 :host {
-    display: flex;
+    display: block;
     border-bottom: 1px solid $liteGrey;
 }
 
-$h: 30px;
 .input {
     border: 0;
     background: $veryLiteGrey;
     outline: none;
     padding: 5px;
-    height: $h;
-    flex-grow: 1;
+    height: 30px;
+    display: block;
     box-sizing: border-box;
-    &_margin-right {
-        margin-right: 10px;
-    }
-}
-
-.btn {
-    outline: none;
-    border: none;
-    background: $veryLiteGrey;
-    cursor: pointer;
-    flex-basis: $h;
-    flex-grow: 0;
-    flex-shrink: 0;
-    &_magnify-icon {
-        background-image: url("/assets/img/maginfy-icon.png");
-        width: $h;
-        height: $h;
-        box-sizing: border-box;
-    }
+    width: 100%;
+    background: url("/assets/img/maginfy-icon.png") center right no-repeat;
 }

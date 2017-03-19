@@ -3,6 +3,9 @@ import {
   Component,
   OnInit,
 } from '@angular/core';
+import {Subject} from 'rxjs/Subject';
+import 'rxjs/add/operator/debounceTime'
+
 
 @Component({
   selector: 'search-panel',
@@ -13,12 +16,16 @@ export class SearchPanelComponent implements OnInit {
   constructor(private clientsService: ClientsService) {
     
   }
-  term: string;
+  term$ = new Subject<string>();
 
   public ngOnInit() {
+    this.term$
+    .debounceTime(200)
+    .subscribe(term => this.filterClients(term))
   }
 
-  filterClients(){
-    this.clientsService.filterClients(this.term);
+  filterClients(term: string){
+    console.log(1);
+    this.clientsService.filterClients(term);
   }
 }
