@@ -1,18 +1,23 @@
+@import "../../styles/variables";
 :host {
     display: block;
     height: 100vh;
+    background-color: $veryLiteGrey;
+    color: $darkBlue;
+    overflow: hidden;
 }
 
 .first-column {
     width: 20%;
     height: 100%;
     float: left;
+    border-right: 2px solid $midBlue;
+    box-sizing: border-box;
 }
 
 .second-column {
     width: 80%;
     height: 100%;
     float: right;
-    background-color: green;
     overflow-y: auto;
 }
