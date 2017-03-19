@@ -29,13 +29,17 @@
         display: inline-block;
         vertical-align: middle;
     }
-    &__name {
+    &__info {
         display: inline-block;
         vertical-align: middle;
         line-height: $h;
-        &__string {
-            color: #27464e;
+        color: #27464e;
+        &__name {
             line-height: 17px;
+        }
+        &__job {
+            line-height: 17px;
+            font-size: 10px;
         }
     }
 }

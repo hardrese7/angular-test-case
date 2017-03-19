@@ -2,12 +2,12 @@
     <div class="client__photo">
         <img src="{{client.general.avatar}}">
     </div>
-    <div class="client__name">
-        <div class="client__name__string">
-            {{client.general.firstName}}
+    <div class="client__info">
+        <div class="client__info__name">
+            {{client.general.firstName}} {{client.general.lastName}}
         </div>
-        <div class="client__name__string">
-            {{client.general.lastName}}
+        <div class="client__info__job">
+            {{client.job.title}}
         </div>
     </div>
 </div>
