@@ -25,7 +25,6 @@ export class SearchPanelComponent implements OnInit {
   }
 
   filterClients(term: string){
-    console.log(1);
     this.clientsService.filterClients(term);
   }
 }
