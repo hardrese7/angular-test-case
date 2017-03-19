@@ -18,9 +18,9 @@ export class ClientsService {
     this.clientSelectedSource.next(client);
   }
   filterClients(term: string){
-    this.clientsFilteredSource.next(term)
+    this.clientsFilteredSource.next(term);
   }
   clientsNotFound(notFound: boolean){
-    this.clientsNotFoundSource.next(notFound)
+    this.clientsNotFoundSource.next(notFound);
   }
 }
