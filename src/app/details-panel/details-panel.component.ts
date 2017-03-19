@@ -22,5 +22,4 @@ export class DetailsPanelComponent implements OnInit {
       (error) => this.error = error
     );
   }
-
 }
