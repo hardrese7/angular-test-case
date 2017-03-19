@@ -5,6 +5,9 @@
     <div class="info">
         <div class="name" [innerHtml]="client.general.firstName + ' ' + client.general.lastName | highlight : term">
         </div>
+        <div class="job">
+            <span [innerHtml]="client.job.title | highlight : term"></span> - <span [innerHtml]="client.job.company | highlight : term"></span>
+        </div>
         <div class="contacts contacts_margin-top">
             <h3 class="info__title" *ngIf="client.contact">Contacts</h3>
             <div class="contacts__email" *ngIf="client.contact.email">email: <span class="info__value" [innerHtml]="client.contact.email | highlight : term"></span></div>
@@ -16,11 +19,6 @@
             <div class="address__city" *ngIf="client.address.city">city: <span class="info__value" [innerHtml]="client.address.city | highlight : term"></span></div>
             <div class="address__zipCode" *ngIf="client.address.zipCode">zip code: <span class="info__value" [innerHtml]="client.address.zipCode | highlight : term"></span></div>
             <div class="address__country" *ngIf="client.address.country">country: <span class="info__value" [innerHtml]="client.address.country | highlight : term"></span></div>
-        </div>
-        <div class="job job_margin-top">
-            <h3 class="info__title" *ngIf="client.job">Job</h3>
-            <div class="job__company" *ngIf="client.job.company">company: <span class="info__value" [innerHtml]="client.job.company | highlight : term"></span></div>
-            <div class="job__title" *ngIf="client.job.title">title: <span class="info__value" [innerHtml]="client.job.title | highlight : term"></span></div>
         </div>
     </div>
 </div>

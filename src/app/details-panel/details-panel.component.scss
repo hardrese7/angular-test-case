@@ -31,9 +31,12 @@
     font-size: 31px;
 }
 
-.contacts,
-.address,
 .job {
+    font-size: 11px;
+}
+
+.contacts,
+.address {
     line-height: 22px;
     &_margin-top {
         margin-top: 25px;
