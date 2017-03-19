@@ -10,6 +10,5 @@ import { DataResolver } from './app.resolver';
 
 export const ROUTES: Routes = [
   { path: '',      component: StartPageComponent },
-  { path: 'start',  component: StartPageComponent },
   { path: '**',    component: NoContentComponent },
 ];
