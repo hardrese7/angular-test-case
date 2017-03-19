@@ -27,6 +27,7 @@ import { AppState, InternalStateType } from './app.service';
 import { StartPageComponent } from './start-page';
 import { SearchPanelComponent } from './search-panel';
 import { NoContentComponent } from './no-content';
+import { ClientsListComponent } from './clients-list';
 
 import '../styles/styles.scss';
 
