@@ -28,7 +28,7 @@ export class ClientsListComponent implements OnInit {
         this.filterClients();
       },
       (error) => this.errorMessage = error
-    )
+    );
     this.getClients();
   }
 

@@ -3,25 +3,24 @@
         <img src="{{client.general.avatar}}" alt="">
     </div>
     <div class="info">
-        <div class="name">
-            {{client.general.firstName}} {{client.general.lastName}}
+        <div class="name" [innerHtml]="client.general.firstName + ' ' + client.general.lastName | highlight : term">
         </div>
         <div class="contacts contacts_margin-top">
-            <h3 class="info__title">Contacts</h3>
-            <div class="contacts__email">email: {{client.contact.email}}</div>
-            <div class="contacts__phone">phone: {{client.contact.phone}}</div>
+            <h3 class="info__title" *ngIf="client.contact">Contacts</h3>
+            <div class="contacts__email" *ngIf="client.contact.email">email: <span class="info__value" [innerHtml]="client.contact.email | highlight : term"></span></div>
+            <div class="contacts__phone" *ngIf="client.contact.phone">phone: <span class="info__value" [innerHtml]="client.contact.phone | highlight : term"></span></div>
         </div>
         <div class="address address_margin-top">
-            <h3 class="info__title">Address</h3>
-            <div class="address__street">street: {{client.address.street}}</div>
-            <div class="address__city">city: {{client.address.city}}</div>
-            <div class="address__zipCode">zip code: {{client.address.zipCode}}</div>
-            <div class="address__country">country: {{client.address.country}}</div>
+            <h3 class="info__title" *ngIf="client.address">Address</h3>
+            <div class="address__street" *ngIf="client.address.street">street: <span class="info__value" [innerHtml]="client.address.street | highlight : term"></span></div>
+            <div class="address__city" *ngIf="client.address.city">city: <span class="info__value" [innerHtml]="client.address.city | highlight : term"></span></div>
+            <div class="address__zipCode" *ngIf="client.address.zipCode">zip code: <span class="info__value" [innerHtml]="client.address.zipCode | highlight : term"></span></div>
+            <div class="address__country" *ngIf="client.address.country">country: <span class="info__value" [innerHtml]="client.address.country | highlight : term"></span></div>
         </div>
         <div class="job job_margin-top">
-            <h3 class="info__title">Job</h3>
-            <div class="job__company">company: {{client.job.company}}</div>
-            <div class="job__title">title: {{client.job.title}}</div>
+            <h3 class="info__title" *ngIf="client.job">Job</h3>
+            <div class="job__company" *ngIf="client.job.company">company: <span class="info__value" [innerHtml]="client.job.company | highlight : term"></span></div>
+            <div class="job__title" *ngIf="client.job.title">title: <span class="info__value" [innerHtml]="client.job.title | highlight : term"></span></div>
         </div>
     </div>
 </div>

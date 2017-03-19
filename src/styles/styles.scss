@@ -1,4 +1,5 @@
 @import "reset";
+@import "_variables";
 app {
     display: block;
     height: 100vh;
@@ -7,4 +8,9 @@ app {
 body {
     height: 100vh;
     min-width: 1080px;
+}
+
+.highlight {
+    color: $veryLiteGrey;
+    background-color: $midBlue;
 }

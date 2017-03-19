@@ -1,3 +1,4 @@
+import { HighlightPipe } from '../highlight.pipe';
 import { Client } from '../models';
 import { ClientsService } from '../clients.service';
 import {
@@ -8,18 +9,27 @@ import {
 @Component({
   selector: 'details-panel',
   templateUrl: './details-panel.component.html',
-  styleUrls: ['./details-panel.component.scss']
+  styleUrls: ['./details-panel.component.scss'],
+  providers: [HighlightPipe]
 })
 export class DetailsPanelComponent implements OnInit {
   constructor(private clientsService: ClientsService) {
 
   }
+  term: string;
+  errorMessage: any;
   client: Client;
   error: any;
   public ngOnInit() {
     this.clientsService.clientSelected$.subscribe(
       (client) => this.client = client,
       (error) => this.error = error
+    );
+    this.clientsService.clientsFiltered$.subscribe(
+      (term) => {
+        this.term = term;
+      },
+      (error) => this.errorMessage = error
     );
   }
 }

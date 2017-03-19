@@ -25,6 +25,7 @@ import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppService } from './app.service';
 import { ClientsService } from './clients.service';
+import { HighlightPipe } from './highlight.pipe';
 import { StartPageComponent } from './start-page';
 import { SearchPanelComponent } from './search-panel';
 import { NoContentComponent } from './no-content';
@@ -51,7 +52,8 @@ const APP_PROVIDERS = [
     NoContentComponent,
     SearchPanelComponent,
     DetailsPanelComponent,
-    ClientsListComponent  
+    ClientsListComponent,
+    HighlightPipe
   ],
   imports: [ // import Angular's modules
     BrowserModule,
