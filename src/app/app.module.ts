@@ -25,6 +25,7 @@ import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { StartPageComponent } from './start-page';
+import { SearchPanelComponent } from './search-panel';
 import { NoContentComponent } from './no-content';
 
 import '../styles/styles.scss';
@@ -49,7 +50,8 @@ type StoreType = {
   declarations: [
     AppComponent,
     StartPageComponent,
-    NoContentComponent
+    NoContentComponent,
+    SearchPanelComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,
