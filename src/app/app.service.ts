@@ -1,36 +1,33 @@
+import { Client } from './models';
 import { Injectable } from '@angular/core';
-
-export type InternalStateType = {
-  [key: string]: any
-};
+import { Http, Response }          from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
 
 @Injectable()
-export class AppState {
+export class AppService {
 
-  public _state: InternalStateType = { };
+constructor (private http: Http) {}
 
-  // already return a clone of the current state
-  public get state() {
-    return this._state = this._clone(this._state);
-  }
-  // never allow mutation
-  public set state(value) {
-    throw new Error('do not mutate the `.state` directly');
-  }
+  private readonly clientsUrl = "/assets/clients.json"
 
-  public get(prop?: any) {
-    // use our state getter for the clone
-    const state = this.state;
-    return state.hasOwnProperty(prop) ? state[prop] : state;
+  getClients(): Observable<Client[]> {
+    return this.http.get(this.clientsUrl)
+                    .map(res => res.json())
+                    .catch(this.handleError);
   }
 
-  public set(prop: string, value: any) {
-    // internally mutate our state
-    return this._state[prop] = value;
-  }
-
-  private _clone(object: InternalStateType) {
-    // simple object clone
-    return JSON.parse(JSON.stringify( object ));
+  private handleError (error: Response | any) {
+    let errMsg: string;
+    if (error instanceof Response) {
+      const body = error.json() || '';
+      const err = body.error || JSON.stringify(body);
+      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+    } else {
+      errMsg = error.message ? error.message : error.toString();
+    }
+    console.error(errMsg);
+    return Observable.throw(errMsg);
   }
 }
