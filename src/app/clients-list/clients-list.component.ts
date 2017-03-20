@@ -18,7 +18,7 @@ export class ClientsListComponent implements OnInit {
   public errorMessage: any;
   public selectedClient: Client;
   public term: string;
-  constructor(private appService: AppService, private clientsService: ClientsService) {
+  constructor(private appService: AppService, public clientsService: ClientsService) {
 
   }
 
@@ -30,11 +30,11 @@ export class ClientsListComponent implements OnInit {
       },
       (error) => this.errorMessage = error
     );
-    this.getClients();
+    return this.getClients();
   }
 
   public getClients() {
-    this.appService.getClients()
+    return this.appService.getClients()
       .subscribe(
       (clients) => {
         this.clients = clients;
@@ -43,7 +43,7 @@ export class ClientsListComponent implements OnInit {
       (error) => this.errorMessage = <any> error);
   }
 
-  public searchTermInObject(object) {
+  public searchTermInObject(object): boolean {
     return Object.keys(object).some((key) => {
       switch (typeof object[key]) {
         case 'string':
@@ -77,6 +77,9 @@ export class ClientsListComponent implements OnInit {
   }
 
   public selectClient(client: Client) {
+    if (!client) {
+      throw Error('you tried to select empty client');
+    }
     this.selectedClient = client;
     this.clientsService.selectClient(client);
   }

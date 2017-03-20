@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Rx';
 import { Client } from './models';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
@@ -6,14 +7,14 @@ import { Subject } from 'rxjs/Subject';
 export class ClientsService {
 
   // Observable string streams
-  public clientSelected$;
-  public clientsFiltered$;
-  public clientsNotFound$;
+  public clientSelected$: Observable<Client>;
+  public clientsFiltered$: Observable<string>;
+  public clientsNotFound$: Observable<boolean>;
 
   // Observable string sources
-  private clientSelectedSource;
-  private clientsFilteredSource;
-  private clientsNotFoundSource;
+  private clientSelectedSource: Subject<Client>;
+  private clientsFilteredSource: Subject<string>;
+  private clientsNotFoundSource: Subject<boolean>;
 
 constructor() {
   this.clientSelectedSource = new Subject<Client>();
