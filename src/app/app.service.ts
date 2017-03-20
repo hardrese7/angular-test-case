@@ -7,14 +7,13 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AppService {
+private readonly clientsUrl = '/assets/clients.json';
 
 constructor (private http: Http) {}
 
-  private readonly clientsUrl = "/assets/clients.json"
-
-  getClients(): Observable<Client[]> {
+  public getClients(): Observable<Client[]> {
     return this.http.get(this.clientsUrl)
-                    .map(res => res.json())
+                    .map((res) => res.json())
                     .catch(this.handleError);
   }
 

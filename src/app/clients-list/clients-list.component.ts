@@ -1,6 +1,6 @@
 import { ClientsService } from '../clients.service';
 import { AppService } from '../app.service';
-import { Client } from "../models"
+import { Client } from '../models';
 import {
   Component,
   OnInit,
@@ -12,14 +12,15 @@ import {
   styleUrls: ['./clients-list.component.scss']
 })
 export class ClientsListComponent implements OnInit {
+  public clients: Client[];
+  public filteredClients: Client[];
+  // I can use pipe, but angular documentation doesn't recommend it for filtering porposes
+  public errorMessage: any;
+  public selectedClient: Client;
+  public term: string;
   constructor(private appService: AppService, private clientsService: ClientsService) {
 
   }
-  clients: Client[];
-  filteredClients: Client[];// I can use pipe, but angular documentation doesn't recommend it for filtering porposes
-  errorMessage: any;
-  selectedClient: Client;
-  term: string;
 
   public ngOnInit() {
     this.clientsService.clientsFiltered$.subscribe(
@@ -32,50 +33,50 @@ export class ClientsListComponent implements OnInit {
     this.getClients();
   }
 
-  getClients() {
+  public getClients() {
     this.appService.getClients()
       .subscribe(
       (clients) => {
         this.clients = clients;
-        this.filterClients()
+        this.filterClients();
       },
-      (error) => this.errorMessage = <any>error);
+      (error) => this.errorMessage = <any> error);
   }
 
-  searchTermInObject(object) {
+  public searchTermInObject(object) {
     return Object.keys(object).some((key) => {
       switch (typeof object[key]) {
-        case "string":
+        case 'string':
           return object[key].toLowerCase().indexOf(this.term.toLowerCase()) > -1;
-        case "number":
+        case 'number':
           return object[key] === +this.term;
-        case "object":
-          return object[key] === null ? false : this.searchTermInObject(object[key])
+        case 'object':
+          return object[key] === null ? false : this.searchTermInObject(object[key]);
         default:
           return false;
       }
 
-    })
+    });
   }
 
-  filterClients() {
+  public filterClients() {
     if (!this.term) {
       this.filteredClients = this.clients;
-    } else{
+    } else {
       this.filteredClients = this.clients.filter(this.searchTermInObject.bind(this));
     }
     this.notifyAboutFoundClients();
   }
 
-  notifyAboutFoundClients(){
-    if(!this.filteredClients.length){
+  public notifyAboutFoundClients() {
+    if (!this.filteredClients.length) {
       this.clientsService.clientsNotFound(true);
-    } else{
+    } else {
       this.clientsService.clientsNotFound(false);
     }
   }
 
-  selectClient(client: Client) {
+  public selectClient(client: Client) {
     this.selectedClient = client;
     this.clientsService.selectClient(client);
   }

@@ -5,22 +5,33 @@ import { Subject } from 'rxjs/Subject';
 @Injectable()
 export class ClientsService {
 
-  // Observable string sources
-  private clientSelectedSource = new Subject<Client>();
-  private clientsFilteredSource = new Subject<string>();
-  private clientsNotFoundSource = new Subject<boolean>();
   // Observable string streams
-  clientSelected$ = this.clientSelectedSource.asObservable();
-  clientsFiltered$ = this.clientsFilteredSource.asObservable();
-  clientsNotFound$ = this.clientsNotFoundSource.asObservable();
+  public clientSelected$;
+  public clientsFiltered$;
+  public clientsNotFound$;
+
+  // Observable string sources
+  private clientSelectedSource;
+  private clientsFilteredSource;
+  private clientsNotFoundSource;
+
+constructor() {
+  this.clientSelectedSource = new Subject<Client>();
+  this.clientsFilteredSource = new Subject<string>();
+  this.clientsNotFoundSource = new Subject<boolean>();
+  this.clientSelected$ = this.clientSelectedSource.asObservable();
+  this.clientsFiltered$ = this.clientsFilteredSource.asObservable();
+  this.clientsNotFound$ = this.clientsNotFoundSource.asObservable();
+}
+
   // Service message commands
-  selectClient(client: Client) {
+  public selectClient(client: Client) {
     this.clientSelectedSource.next(client);
   }
-  filterClients(term: string){
+  public filterClients(term: string) {
     this.clientsFilteredSource.next(term);
   }
-  clientsNotFound(notFound: boolean){
+  public clientsNotFound(notFound: boolean) {
     this.clientsNotFoundSource.next(notFound);
   }
 }

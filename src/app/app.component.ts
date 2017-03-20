@@ -25,6 +25,7 @@ import { AppService } from './app.service';
 export class AppComponent implements OnInit {
 
   public ngOnInit() {
+    //
   }
 
 }

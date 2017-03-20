@@ -1,5 +1,5 @@
-export class GeneralInfo{
-    firstName: string;
-    lastName: string;
-    avatar: string;
+export class GeneralInfo {
+    public firstName: string;
+    public lastName: string;
+    public avatar: string;
 }

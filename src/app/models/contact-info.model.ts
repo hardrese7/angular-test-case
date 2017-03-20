@@ -1,4 +1,4 @@
-export class ContactInfo{
-    email: string;
-    phone: string;
+export class ContactInfo {
+    public email: string;
+    public phone: string;
 }

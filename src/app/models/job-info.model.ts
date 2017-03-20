@@ -1,4 +1,4 @@
-export class JobInfo{
-    company: string;
-    title: string;
+export class JobInfo {
+    public company: string;
+    public title: string;
 }

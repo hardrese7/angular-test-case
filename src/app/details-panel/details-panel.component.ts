@@ -13,13 +13,13 @@ import {
   providers: [HighlightPipe]
 })
 export class DetailsPanelComponent implements OnInit {
+  public term: string;
+  public errorMessage: any;
+  public client: Client;
+  public clientsNotFound: boolean;
   constructor(private clientsService: ClientsService) {
 
   }
-  term: string;
-  errorMessage: any;
-  client: Client;
-  clientsNotFound: boolean;
 
   public ngOnInit() {
     this.clientsService.clientSelected$.subscribe(
@@ -38,11 +38,11 @@ export class DetailsPanelComponent implements OnInit {
     this.clientsService.clientsNotFound$.subscribe(
       (notFound) => {
         this.clientsNotFound = notFound;
-        if(notFound){
+        if (notFound) {
           this.client = null;
         }
       },
       (error) => this.errorMessage = error
-    )
+    );
   }
 }
